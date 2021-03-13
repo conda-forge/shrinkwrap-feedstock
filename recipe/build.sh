@@ -10,6 +10,7 @@ cmake \
   -DCMAKE_INSTALL_INCLUDEDIR=include \
   -DCMAKE_INSTALL_LIBDIR=lib \
   -DCMAKE_BUILD_TYPE=Release \
+  -DBUILD_TESTS:BOOL=ON \
   ${SRC_DIR}
 
 make -j${CPU_COUNT}

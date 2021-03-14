@@ -1,13 +1,13 @@
 {% set name = "shrinkwrap" %}
-{% set version = "1.0.0" %}
+{% set version = "1.1.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/jonathonl/shrinkwrap/archive/v{{ version }}-beta.tar.gz
-  sha256: c9e7e7eb4ea7ea85ddffd0d7ecdc2febdcac8486d178cdc99d762404fe3bb8dd
+  url: https://github.com/jonathonl/shrinkwrap/archive/v{{ version }}.tar.gz
+  sha256: 833e85bdc41e7bf82a57f0fb52958795fb089f691981d2e3a2b68eee17128082
 
 build:
   skip: True  # [win]
@@ -21,6 +21,7 @@ requirements:
     - make  # [not win]
     - xz
     - zstd
+    - zlib
   host:
     - xz
     - zlib
@@ -29,6 +30,7 @@ requirements:
 test:
   commands:
     - test -f $PREFIX/include/shrinkwrap/istream.hpp  # [not win]
+    - test -f $PREFIX/include/shrinkwrap/stdio.hpp  # [not win]
     - test -f $PREFIX/include/shrinkwrap/gz.hpp  # [not win]
     - test -f $PREFIX/include/shrinkwrap/zstd.hpp  # [not win]
     - test -f $PREFIX/include/shrinkwrap/xz.hpp  # [not win]

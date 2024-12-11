@@ -11,19 +11,20 @@ source:
 
 build:
   skip: True  # [win]
-  number: 0
+  number: 1
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - cmake
     - make  # [not win]
-    - xz
+    - liblzma-devel
     - zstd
     - zlib
   host:
-    - xz
+    - liblzma-devel
     - zlib
     - zstd
 

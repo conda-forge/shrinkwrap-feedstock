@@ -24,6 +24,7 @@ requirements:
     - zlib
     - xz-tools
   host:
+    - liblzma-devel
     - zlib
     - zstd
 

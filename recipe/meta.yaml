@@ -26,7 +26,6 @@ requirements:
   host:
     - zlib
     - zstd
-    
 
 test:
   commands:

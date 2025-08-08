@@ -3,7 +3,7 @@
 set -e
 set -x
 CXXFLAGS="${CXXFLAGS} -D_GLIBCXX_HAVE_STDINT_H=1"
-cmake \
+cmake ${CMAKE_ARGS} \
   -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
   -DBUILD_SHARED_LIBS:BOOL=ON \
   -DCMAKE_PREFIX_PATH:PATH=${PREFIX} \
@@ -16,5 +16,7 @@ cmake \
 
 make -j${CPU_COUNT}
 make install
+if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" || "${CROSSCOMPILING_EMULATOR}" != "" ]]; then
 make test
+fi
 
